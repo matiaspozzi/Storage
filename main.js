@@ -48,15 +48,15 @@ const Services = [
     
 // inyecto las cards     
 
-let cards = document.getElementById("cartas")
-for (const cardx of Services){
-    let carta = document.createElement("div")
+let cardx = document.getElementById("cardx")
+for (const carta of Services){
+    let cartas = document.createElement("div")
     carta.className="card col-md-3";
     carta.innerHTML=`
     <div class="card-body">
         <h5 class="card-title">${cardx.servicio}</h5>
         <h6 class="card-subtitle mb-2 text-muted">${cardx.precio}</h6>
-        <button id= boton class="btn ${cardx.precio} btn-primary boton">COMPRAR</button>
+        <button id= boton class="btn${cardx.id} btn-primary boton">COMPRAR</button>
     </div>
     `;
 
@@ -64,17 +64,16 @@ for (const cardx of Services){
 
 //Eventos Boton
 
-    
-
-}
-
-let boton = document.getElementById(`btn${Servicios.id}`)
+let boton = document.getElementsByClassName(`btn${cardx.id}`) 
 
 boton.addEventListener("click",(e) => {
 e.preventDefaul ();
 console.log ("Agregaste el producto al carrito")
 servicios.push (cardx);
 })
+
+}
+
 
 
 
