@@ -1,14 +1,13 @@
 class Serv{
     constructor(Servicio, precio){
         this.Servicio = Servicio.toLowerCase();
-        this.precio = (precio);
+        this.precio = precio;
     }
 }
 
 
 const Servicios = []
 
-let carrito = []
 
 const Services = [
     {
@@ -50,14 +49,14 @@ const Services = [
 // inyecto las cards     
 
 let cards = document.getElementById("cartas")
-for (const Servicios of Services){
+for (const cardx of Services){
     let carta = document.createElement("div")
     carta.className="card col-md-3";
     carta.innerHTML=`
     <div class="card-body">
-        <h5 class="card-title">${Servicios.servicio}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">${Servicios.precio}</h6>
-        <button id= boton class="btn ${Servicios.precio} btn-primary boton">COMPRAR</button>
+        <h5 class="card-title">${cardx.servicio}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">${cardx.precio}</h6>
+        <button id= boton class="btn ${cardx.precio} btn-primary boton">COMPRAR</button>
     </div>
     `;
 
@@ -69,16 +68,13 @@ for (const Servicios of Services){
 
 }
 
-let boton = document.getElementById(`btn${Servicios.id}`).addEventListener("click",agregarCarrito(Servicios));
-    
-//Funcion que agrega el servicio al carrito
+let boton = document.getElementById(`btn${Servicios.id}`)
 
-function agregarCarrito(newProduct){
-    carrito.push(producto);
-    console.log(carrito)
-
-
-}
+boton.addEventListener("click",(e) => {
+e.preventDefaul ();
+console.log ("Agregaste el producto al carrito")
+servicios.push (cardx);
+})
 
 
 
