@@ -25,7 +25,7 @@ const Services = [
         servicio: "banners animados",
         precio: 20000
     },
-    {
+    {   
         id: 4,
         servicio: "galeria de imagenes",
         precio: 7000
@@ -54,9 +54,9 @@ for (const carta of Services){
     carta.className="card col-md-3";
     carta.innerHTML=`
     <div class="card-body">
-        <h5 class="card-title">${cardx.servicio}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">${cardx.precio}</h6>
-        <button id= boton class="btn${cardx.id} btn-primary boton">COMPRAR</button>
+        <h5 class="card-title">${carta.servicio}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">${carta.precio}</h6>
+        <button id= boton class="btn${carta.id} btn-primary boton">COMPRAR</button>
     </div>
     `;
 
@@ -64,12 +64,12 @@ for (const carta of Services){
 
 //Eventos Boton
 
-let boton = document.getElementsByClassName(`btn${cardx.id}`) 
+let boton = document.getElementsByClassName(`btn${carta.id}btn-primary boton    `) 
 
 boton.addEventListener("click",(e) => {
-e.preventDefaul ();
+e.preventDefault ();
 console.log ("Agregaste el producto al carrito")
-servicios.push (cardx);
+Servicios.push (cardx);
 })
 
 }
