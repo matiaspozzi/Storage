@@ -1,4 +1,4 @@
-class Serv{
+class servicio{
     constructor(Servicio, precio){
         this.Servicio = Servicio.toLowerCase();
         this.precio = precio;
@@ -6,10 +6,10 @@ class Serv{
 }
 
 
-const Servicios = []
+const miCarrito = []
 
 
-const Services = [
+const services = [
     {
         id: 1,
         servicio: "Diseño y maquetacion de sitio responsivo",
@@ -22,7 +22,7 @@ const Services = [
     },
     {
         id: 3,
-        servicio: "banners animados",
+        servicio: "banners animados", 
         precio: 20000
     },
     {   
@@ -48,31 +48,33 @@ const Services = [
     
 // inyecto las cards     
 
-let cardx = document.getElementById("cardx")
-for (const carta of Services){
-    let cartas = document.createElement("div")
+let section = document.getElementById("sectionServices")
+for (const service of services){
+    let carta = document.createElement("div")
     carta.className="card col-md-3";
     carta.innerHTML=`
     <div class="card-body">
-        <h5 class="card-title">${carta.servicio}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">${carta.precio}</h6>
-        <button id= boton class="btn${carta.id} btn-primary boton">COMPRAR</button>
+        <h5 class="card-title">${service.servicio}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">${service.precio}</h6>
+        <button id="btn${service.id}" btn-primary boton">COMPRAR</button>
     </div>
     `;
 
-    cartas.append(carta);
+    section.append(carta);
+      
+   
 
-//Eventos Boton
+ //Eventos Boton
 
-let boton = document.getElementsByClassName(`btn${carta.id}btn-primary boton    `) 
-
-boton.addEventListener("click",(e) => {
-e.preventDefault ();
-console.log ("Agregaste el producto al carrito")
-Servicios.push (cardx);
-})
+let boton = document.getElementById(`btn${service.id}`) 
+        document.getElementById("boton"), boton.addEventListener("click",() => {
+        console.log ("Agregaste el producto al carrito")
+        miCarrito.push (service);
+        })
+         
 
 }
+
 
 
 
