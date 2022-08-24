@@ -74,7 +74,10 @@ function renderizarProductos () {
     </div>
     `;
 
-    console.log("totalCarrito+=service.servicio+service.precio");
+    console.log(totalCarrito= miCarrito.map (miCarrito => miCarrito.precio),
+    checkOut = totalCarrito.reduce ((ac,el) => ac + el,0),
+    console.log(miCarrito));
+    
 
 
 //Eventos Boton
