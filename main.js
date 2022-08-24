@@ -1,3 +1,6 @@
+AOS.init()
+
+
 class servicio{
     constructor(Servicio, precio){
         this.Servicio = Servicio.toLowerCase();
@@ -51,9 +54,15 @@ const services = [
 
  
     
-// inyecto las cards     
+//declaro la variable que almacenara el total de mi carrito
 
+let totalCarrito = 0;
+
+
+// inyecto las cards   
 renderizarProductos();
+
+
 
 function renderizarProductos () {
     for (const service of services){
@@ -65,17 +74,17 @@ function renderizarProductos () {
     </div>
     `;
 
-    
-      
-   
+    console.log("totalCarrito+=service.servicio+service.precio");
 
- //Eventos Boton
+
+//Eventos Boton
  let boton = document.getElementById(`btn${service.id}`) 
  document.getElementById("boton"), boton.addEventListener("click",() => {
  console.log ("agregaste al carrito")
  miCarrito.push (service);
  })
 
+ 
          
 
 }
@@ -94,7 +103,11 @@ document.getElementById(`btn${service.id}`).addEventListener("click", function()
 function agregarAlCarrito(service){
     miCarrito.push(service);
     console.log(miCarrito);
-    alert("Producto: "+service.servicio+" agregado al carrito")
+    Swal.fire(
+        "Producto: "+service.servicio,
+        "Agregado al carrito",
+        "Success"
+    )
     document.getElementById("tableBody").innerHTML+=`
     <tr>
         <td>${service.id}</td>
@@ -104,8 +117,19 @@ function agregarAlCarrito(service){
   ;
     localStorage.setItem("miCarrito",JSON.stringify(miCarrito));
 
+
+//borrar productos del carrito
+
+
+
 }
 
 
+let vaciarCompra = document.getElementById("buttonFinalizarCompra")
+    buttonFinalizarCompra.addEventListener("click", () => {
+       
+            localStorage.removeItem("miCarrito",JSON.stringify(miCarrito));
+
+    })
 
 
