@@ -107,7 +107,7 @@ function agregarAlCarrito(service){
     Swal.fire(
         "Producto: "+service.servicio,
         "Agregado al carrito",
-        "Success"
+        "success"
     )
     document.getElementById("tableBody").innerHTML+=`
     <tr>
