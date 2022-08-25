@@ -12,39 +12,39 @@ let section = document.getElementById("sectionServices")
 
 let miCarrito = []
 if(localStorage.getItem("miCarrito")){
-    miCarrito=JSON.parse(localStorage.getItem("miCarrito"));
+    miCarrito = JSON.parse(localStorage.getItem('miCarrito')) || []
 // cargo los servicios abandonados a la tabla
 }
 
 
 const services = [
     { 
-        id: 1,
+        id: "1",
         servicio: "Diseño y maquetacion de sitio responsivo",
         precio: 70000
     },
     {
-        id: 2,
+        id: "2",
         servicio: "Diseño y maquetacion de sitio HTML5 y CSS3",
         precio: 70000
     },
     {
-        id: 3,
+        id: "3",
         servicio: "Banners animados", 
         precio: 20000
     },
     {   
-        id: 4,
+        id: "4",
         servicio: "Galeria de imagenes",
         precio: 7000
     },
     {
-        id: 5,
+        id: "5",
         servicio: "Formulario web",
         precio: 5000
     },
     {    
-        id: 6,
+        id: "6",
         servicio:"SEO",
         precio: 15000
     }
@@ -67,16 +67,14 @@ renderizarProductos();
 function renderizarProductos () {
     for (const service of services){
         section.innerHTML+= `<div class="col-md-3" list-group-item"> 
-        <h7> ID: ${service.id}
-        <h5 class="card-title">${service.servicio}</h5>
+        <h5> ID: ${service.id}
+        <h6 class="card-title">${service.servicio}</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ ${service.precio}</h6>
         <button id="btn${service.id}" btn-primary boton">COMPRAR</button> 
     </div>
     `;
 
-    console.log(totalCarrito= miCarrito.map (miCarrito => miCarrito.precio),
-    checkOut = totalCarrito.reduce ((ac,el) => ac + el,0),
-    console.log(miCarrito));
+  
     
 
 
@@ -131,6 +129,11 @@ function agregarAlCarrito(service){
 let vaciarCompra = document.getElementById("buttonFinalizarCompra")
     buttonFinalizarCompra.addEventListener("click", () => {
        
+        console.log(totalCarrito= miCarrito.map (miCarrito => miCarrito.precio),
+        checkOut = totalCarrito.reduce ((ac,el) => ac + el,0),
+        console.log(miCarrito));
+
+
             localStorage.removeItem("miCarrito",JSON.stringify(miCarrito));
 
     })
