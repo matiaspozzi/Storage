@@ -1,6 +1,7 @@
 AOS.init()
 
 
+
 class servicio{
     constructor(Servicio, precio){
         this.Servicio = Servicio.toLowerCase();
@@ -59,6 +60,7 @@ const services = [
 let totalCarrito = 0;
 
 
+
 // inyecto las cards   
 renderizarProductos();
 
@@ -73,6 +75,7 @@ function renderizarProductos () {
         <button id="btn${service.id}" btn-primary boton">COMPRAR</button> 
     </div>
     `;
+
 
   
     
@@ -114,7 +117,10 @@ function agregarAlCarrito(service){
         <td>${service.id}</td>
         <td>${service.servicio}</td>
         <td>${service.precio}</td>
-    </tr>`
+        <td>
+            <a href="#" class="borrar-producto fas fa-times-circle" data-id="${service.id}"></a>
+        </tf>
+        </tr>`
   ;
     localStorage.setItem("miCarrito",JSON.stringify(miCarrito));
 
@@ -124,18 +130,33 @@ function agregarAlCarrito(service){
 
 
 }
-
-
-let vaciarCompra = document.getElementById("buttonFinalizarCompra")
-    buttonFinalizarCompra.addEventListener("click", () => {
-       
+    let vaciarCompra = document.getElementById("buttonFinalizarCompra")
+        buttonFinalizarCompra.addEventListener("click", () => {
+        
         console.log(totalCarrito= miCarrito.map (miCarrito => miCarrito.precio),
         checkOut = totalCarrito.reduce ((ac,el) => ac + el,0),
         console.log(miCarrito));
 
 
             localStorage.removeItem("miCarrito",JSON.stringify(miCarrito));
+            
+     
+        })
+    
 
-    })
+        
+    //fetch
 
+    
+
+    function obtengoJson(){
+         const URLJSON="/fetch.json";
+         fetch(URLJSON)
+            .then( resp => resp.json())
+            .then( data =>{
+                console.log(data);
+            })
+    }
+
+    obtengoJson()
 

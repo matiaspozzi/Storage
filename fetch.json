@@ -1,0 +1,35 @@
+{
+
+"services" : [
+    { 
+        "id": "1",
+        "servicio": "Diseño y maquetacion de sitio responsivo",
+        "precio": 70000
+    },
+    {
+        "id": "2",
+        "servicio": "Diseño y maquetacion de sitio HTML5 y CSS3",
+        "precio": 70000
+    },
+    {
+        "id": "3",
+        "servicio": "Banners animados", 
+        "precio": 20000
+    },
+    {   
+        "id": "4",
+        "servicio": "Galeria de imagenes",
+        "precio": 7000
+    },
+    {
+        "id": "5",
+        "servicio": "Formulario web",
+        "precio": 5000
+    },
+    {    
+        "id": "6",
+        "servicio":"SEO",
+        "precio": 15000
+    }
+ ] 
+}
